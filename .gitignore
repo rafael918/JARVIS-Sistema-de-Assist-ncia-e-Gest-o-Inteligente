@@ -1,0 +1,27 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Banco de dados local
+*.db
+*.sqlite
+*.sqlite3
+
+# Senhas e variáveis privadas
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db
+
+# Arquivos compactados
+*.zip

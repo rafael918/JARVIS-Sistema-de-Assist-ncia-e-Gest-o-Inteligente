@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JARVIS | Painel</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="dashboard">
+
+        <header class="dashboard-header">
+
+            <div>
+                <h1>JARVIS</h1>
+                <p>SISTEMA DE ASSISTÊNCIA E GESTÃO INTELIGENTE</p>
+            </div>
+
+            <div class="dashboard-user">
+                <span class="status-light"></span>
+                <span id="usuarioLogado">USUÁRIO</span>
+
+                <button
+                    class="btn-sair"
+                    onclick="sair()"
+                >
+                    SAIR
+                </button>
+            </div>
+
+        </header>
+
+
+        <section class="dashboard-grid">
+
+            <!-- NÚCLEO JARVIS -->
+
+            <div class="dashboard-card jarvis-command">
+
+                <h2>NÚCLEO JARVIS</h2>
+
+                <div class="mini-core">
+
+                    <div class="core-ring ring-1"></div>
+                    <div class="core-ring ring-2"></div>
+
+                    <div class="core-center">
+                        J
+                    </div>
+
+                </div>
+
+                <p class="jarvis-status">
+                    SISTEMA OPERACIONAL
+                </p>
+
+
+                <div class="command-box">
+
+                    <input
+                        type="text"
+                        id="comandoJarvis"
+                        placeholder="Digite ou fale um comando para o JARVIS..."
+                    >
+
+                    <button id="btnComando">
+                        ENVIAR
+                    </button>
+
+                    <button
+                        id="btnMicrofone"
+                        type="button"
+                        title="Falar com o JARVIS"
+                    >
+                        🎙
+                    </button>
+
+                </div>
+
+
+                <div id="respostaJarvis">
+                    Aguardando comando...
+                </div>
+
+            </div>
+
+
+            <!-- TAREFAS -->
+
+            <div class="dashboard-card">
+
+                <h2>TAREFAS</h2>
+
+                <div class="nova-tarefa">
+
+                    <input
+                        type="text"
+                        id="novaTarefa"
+                        placeholder="Nova tarefa..."
+                    >
+
+                    <button id="btnAdicionar">
+                        ADICIONAR
+                    </button>
+
+                </div>
+
+                <div id="listaTarefas">
+                    Carregando tarefas...
+                </div>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="dashboard-card">
+
+                <h2>STATUS DO SISTEMA</h2>
+
+                <div class="status-item">
+                    <span>BACKEND</span>
+                    <strong class="online">
+                        ONLINE
+                    </strong>
+                </div>
+
+                <div class="status-item">
+                    <span>BANCO DE DADOS</span>
+                    <strong class="online">
+                        ONLINE
+                    </strong>
+                </div>
+
+                <div class="status-item">
+                    <span>JARVIS</span>
+                    <strong class="online">
+                        ATIVO
+                    </strong>
+                </div>
+
+                <div class="status-item">
+                    <span>ASSISTENTE DE VOZ</span>
+                    <strong
+                        id="statusVoz"
+                        class="aguardando"
+                    >
+                        EM CONFIGURAÇÃO
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="painel.js"></script>
+
+</body>
+
+</html>

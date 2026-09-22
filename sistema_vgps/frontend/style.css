@@ -1,0 +1,881 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --azul-principal: #00eaff;
+    --azul-claro: #8ff8ff;
+    --azul-escuro: #006d7a;
+    --fundo: #02070b;
+    --painel: rgba(4, 18, 25, 0.92);
+    --texto: #dffcff;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        radial-gradient(circle at center, #062632 0%, #020b10 45%, #000 100%);
+    color: var(--texto);
+    overflow: hidden;
+}
+
+/* Grade tecnológica do fundo */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(0, 234, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 234, 255, 0.035) 1px, transparent 1px);
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+}
+
+.login-container {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+.jarvis-panel {
+    position: relative;
+
+    width: 100%;
+    max-width: 470px;
+
+    padding: 42px 45px 30px;
+
+    text-align: center;
+
+    background: var(--painel);
+
+    border: 1px solid rgba(0, 234, 255, 0.35);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 0 20px rgba(0, 234, 255, 0.12),
+        inset 0 0 30px rgba(0, 234, 255, 0.04);
+}
+
+/* Cantos tecnológicos */
+
+.jarvis-panel::before,
+.jarvis-panel::after {
+    content: "";
+
+    position: absolute;
+
+    width: 55px;
+    height: 55px;
+
+    border-color: var(--azul-principal);
+}
+
+.jarvis-panel::before {
+    top: -1px;
+    left: -1px;
+
+    border-top: 3px solid;
+    border-left: 3px solid;
+}
+
+.jarvis-panel::after {
+    right: -1px;
+    bottom: -1px;
+
+    border-right: 3px solid;
+    border-bottom: 3px solid;
+}
+
+/* Núcleo */
+
+.jarvis-core {
+    position: relative;
+
+    width: 150px;
+    height: 150px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.core-ring {
+    position: absolute;
+
+    border-radius: 50%;
+
+    border-style: solid;
+}
+
+.ring-1 {
+    width: 145px;
+    height: 145px;
+
+    border-width: 2px;
+    border-color:
+        var(--azul-principal)
+        transparent
+        var(--azul-principal)
+        transparent;
+
+    animation: girar 8s linear infinite;
+}
+
+.ring-2 {
+    width: 115px;
+    height: 115px;
+
+    border-width: 2px;
+    border-color:
+        transparent
+        var(--azul-claro)
+        transparent
+        var(--azul-claro);
+
+    animation: girar-reverso 5s linear infinite;
+}
+
+.ring-3 {
+    width: 85px;
+    height: 85px;
+
+    border: 1px solid rgba(0, 234, 255, 0.7);
+
+    box-shadow:
+        0 0 15px rgba(0, 234, 255, 0.35),
+        inset 0 0 15px rgba(0, 234, 255, 0.2);
+}
+
+.core-center {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(circle, #dfffff 0%, #00dbea 20%, #006f7d 65%, #00242c 100%);
+
+    color: #001014;
+
+    font-size: 29px;
+    font-weight: 700;
+
+    box-shadow:
+        0 0 12px var(--azul-principal),
+        0 0 35px rgba(0, 234, 255, 0.8),
+        0 0 65px rgba(0, 234, 255, 0.35);
+
+    z-index: 2;
+}
+
+/* Títulos */
+
+h1 {
+    color: var(--azul-principal);
+
+    font-size: 35px;
+    letter-spacing: 9px;
+
+    margin-left: 9px;
+
+    text-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+}
+
+.subtitle {
+    margin-top: 7px;
+
+    color: #8db2bb;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+}
+
+/* Status */
+
+.status {
+    margin: 20px 0 27px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    color: #65dce8;
+
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.status-light {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #00ff9d;
+
+    box-shadow: 0 0 8px #00ff9d;
+
+    animation: pulsar 1.8s infinite;
+}
+
+/* Formulário */
+
+.input-group {
+    margin-bottom: 18px;
+
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #67cbd4;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    color: #eaffff;
+
+    background: rgba(0, 20, 27, 0.8);
+
+    border: 1px solid #164c56;
+
+    border-radius: 4px;
+
+    outline: none;
+
+    transition: 0.25s;
+}
+
+.input-group input:focus {
+    border-color: var(--azul-principal);
+
+    box-shadow:
+        0 0 0 1px rgba(0, 234, 255, 0.15),
+        0 0 12px rgba(0, 234, 255, 0.12);
+}
+
+.input-group input::placeholder {
+    color: #46636a;
+}
+
+/* Botão */
+
+button {
+    width: 100%;
+
+    margin-top: 6px;
+
+    padding: 14px;
+
+    cursor: pointer;
+
+    color: #001014;
+
+    background: linear-gradient(
+        90deg,
+        #00aebe,
+        var(--azul-principal)
+    );
+
+    border: none;
+    border-radius: 4px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    transition: 0.25s;
+}
+
+button:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 18px rgba(0, 234, 255, 0.45);
+}
+
+/* Mensagens */
+
+#mensagem {
+    min-height: 22px;
+
+    margin-top: 16px;
+
+    font-size: 12px;
+}
+
+.sucesso {
+    color: #00ff9d;
+}
+
+.erro {
+    color: #ff5c72;
+}
+
+/* Rodapé */
+
+footer {
+    margin-top: 18px;
+
+    color: #365b63;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+}
+
+/* Animações */
+
+@keyframes girar {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes girar-reverso {
+    from {
+        transform: rotate(360deg);
+    }
+
+    to {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes pulsar {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+/* Celular */
+
+@media (max-width: 520px) {
+
+    .jarvis-panel {
+        padding: 32px 25px 25px;
+    }
+
+    .jarvis-core {
+        width: 125px;
+        height: 125px;
+    }
+
+    .ring-1 {
+        width: 125px;
+        height: 125px;
+    }
+
+    .ring-2 {
+        width: 98px;
+        height: 98px;
+    }
+
+    .ring-3 {
+        width: 73px;
+        height: 73px;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+}
+
+/* ==================================================
+   PAINEL PRINCIPAL DO JARVIS
+================================================== */
+
+.dashboard {
+    min-height: 100vh;
+    padding: 30px;
+    overflow-y: auto;
+}
+
+.dashboard-header {
+    max-width: 1400px;
+    margin: 0 auto 25px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 20px 25px;
+
+    background: rgba(3, 17, 23, 0.92);
+    border: 1px solid rgba(0, 234, 255, 0.35);
+    border-radius: 8px;
+
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.08);
+}
+
+.dashboard-header h1 {
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 7px;
+}
+
+.dashboard-header p {
+    margin-top: 7px;
+
+    color: #688d95;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.dashboard-user {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--azul-principal);
+
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.btn-sair {
+    width: auto;
+
+    margin: 0 0 0 12px;
+    padding: 9px 15px;
+
+    color: #ff7285;
+
+    background: transparent;
+
+    border: 1px solid rgba(255, 92, 114, 0.5);
+
+    font-size: 10px;
+}
+
+.btn-sair:hover {
+    box-shadow: 0 0 12px rgba(255, 92, 114, 0.25);
+}
+
+
+/* GRID PRINCIPAL */
+
+.dashboard-grid {
+    max-width: 1400px;
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(350px, 1.3fr)
+        minmax(320px, 1fr);
+
+    gap: 20px;
+}
+
+
+/* CARDS */
+
+.dashboard-card {
+    position: relative;
+
+    padding: 25px;
+
+    background: rgba(3, 17, 23, 0.92);
+
+    border: 1px solid rgba(0, 234, 255, 0.25);
+    border-radius: 8px;
+
+    box-shadow:
+        inset 0 0 25px rgba(0, 234, 255, 0.025),
+        0 0 15px rgba(0, 234, 255, 0.04);
+}
+
+.dashboard-card h2 {
+    margin-bottom: 22px;
+
+    color: #72e9f3;
+
+    font-size: 12px;
+    letter-spacing: 3px;
+
+    border-bottom: 1px solid rgba(0, 234, 255, 0.15);
+
+    padding-bottom: 12px;
+}
+
+
+/* CARD DO JARVIS */
+
+.jarvis-command {
+    grid-row: span 2;
+
+    min-height: 600px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.mini-core {
+    position: relative;
+
+    width: 180px;
+    height: 180px;
+
+    margin: 35px auto 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mini-core .ring-1 {
+    width: 175px;
+    height: 175px;
+}
+
+.mini-core .ring-2 {
+    width: 135px;
+    height: 135px;
+}
+
+.mini-core .core-center {
+    width: 72px;
+    height: 72px;
+
+    font-size: 34px;
+}
+
+.jarvis-status {
+    margin-bottom: 40px;
+
+    text-align: center;
+
+    color: #00ff9d;
+
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+
+/* COMANDO */
+
+.command-box {
+    display: flex;
+    gap: 10px;
+
+    margin-top: auto;
+}
+
+.command-box input,
+.nova-tarefa input {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 13px;
+
+    color: #eaffff;
+
+    background: rgba(0, 20, 27, 0.8);
+
+    border: 1px solid #164c56;
+    border-radius: 4px;
+
+    outline: none;
+}
+
+.command-box input:focus,
+.nova-tarefa input:focus {
+    border-color: var(--azul-principal);
+
+    box-shadow: 0 0 10px rgba(0, 234, 255, 0.1);
+}
+
+.command-box button,
+.nova-tarefa button {
+    width: auto;
+
+    margin: 0;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#respostaJarvis {
+    min-height: 65px;
+
+    margin-top: 18px;
+    padding: 16px;
+
+    color: #9bdce3;
+
+    background: rgba(0, 0, 0, 0.25);
+
+    border-left: 2px solid var(--azul-principal);
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* NOVA TAREFA */
+
+.nova-tarefa {
+    display: flex;
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+/* LISTA DE TAREFAS */
+
+#listaTarefas {
+    max-height: 330px;
+
+    overflow-y: auto;
+
+    padding-right: 5px;
+}
+
+.tarefa-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 9px;
+    padding: 12px 13px;
+
+    background: rgba(0, 234, 255, 0.035);
+
+    border-left: 2px solid #00b8ca;
+
+    color: #ccebef;
+
+    font-size: 13px;
+}
+
+.tarefa-item > span {
+    word-break: break-word;
+}
+
+.tarefa-concluida {
+    opacity: 0.48;
+
+    border-left-color: #00ff9d;
+}
+
+.tarefa-concluida > span {
+    text-decoration: line-through;
+}
+
+.tarefa-acoes {
+    display: flex;
+    gap: 6px;
+}
+
+.tarefa-acoes button {
+    width: 30px;
+    height: 30px;
+
+    margin: 0;
+    padding: 0;
+
+    border-radius: 3px;
+
+    font-size: 16px;
+}
+
+.sem-tarefas {
+    padding: 25px;
+
+    text-align: center;
+
+    color: #56767d;
+
+    font-size: 12px;
+}
+
+
+/* STATUS */
+
+.status-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 14px 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    color: #72959c;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.status-item:last-child {
+    border-bottom: none;
+}
+
+.status-item strong {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.online {
+    color: #00ff9d;
+}
+
+.aguardando {
+    color: #ffbf47;
+}
+
+
+/* BARRA DE ROLAGEM */
+
+#listaTarefas::-webkit-scrollbar {
+    width: 5px;
+}
+
+#listaTarefas::-webkit-scrollbar-thumb {
+    background: #075563;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .dashboard {
+        padding: 15px;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    .dashboard-user {
+        width: 100%;
+
+        justify-content: space-between;
+    }
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .jarvis-command {
+        grid-row: auto;
+
+        min-height: 500px;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .command-box,
+    .nova-tarefa {
+        flex-direction: column;
+    }
+
+    .command-box button,
+    .nova-tarefa button {
+        width: 100%;
+    }
+
+    .dashboard-header h1 {
+        font-size: 23px;
+    }
+}
+
+/* ==============================
+   MICROFONE DO JARVIS
+============================== */
+
+#btnMicrofone {
+    width: 52px;
+    min-width: 52px;
+    height: 44px;
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 52px;
+
+    background: rgba(0, 234, 255, 0.08);
+    color: #00eaff;
+
+    border: 1px solid #00eaff;
+    border-radius: 4px;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#btnMicrofone:hover {
+    background: #00eaff;
+    color: #001015;
+
+    box-shadow: 0 0 15px rgba(0, 234, 255, 0.5);
+}
+
+#btnMicrofone.ouvindo {
+    color: #ff405c;
+    border-color: #ff405c;
+
+    background: rgba(255, 64, 92, 0.08);
+
+    box-shadow: 0 0 18px rgba(255, 64, 92, 0.6);
+}
